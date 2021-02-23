@@ -32,8 +32,8 @@ jobs:
         run: mvn -B -U clean package jacoco:report-aggregate -DfailOnError=false
       - name: Prepare Sonar
         run: |
-          cp federation-test/target/site/jacoco-aggregate/jacoco.xml api-exchange-back/target/site/jacoco
-          cp federation-test/target/site/jacoco-aggregate/jacoco.xml api-exchange-service/target/site/jacoco
+          cp federation-test/target/site/jacoco-aggregate/jacoco.xml federation-back/target/site/jacoco
+          cp federation-test/target/site/jacoco-aggregate/jacoco.xml federation-service/target/site/jacoco
       - name: Analyze
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
